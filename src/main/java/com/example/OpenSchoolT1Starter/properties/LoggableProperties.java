@@ -1,0 +1,28 @@
+package com.example.OpenSchoolT1Starter.properties;
+
+import lombok.Getter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@Getter
+@ConfigurationProperties(prefix = "loggable")
+public class LoggableProperties {
+	private final boolean enabled;
+	private final String level;
+
+	public LoggableProperties(boolean enabled, String level) {
+		this.enabled = enabled;
+		this.level = level;
+
+		System.out.println("enabled: " + enabled);
+		System.out.println("level: " + level);
+		LogLevel.fromString(this.level);
+	}
+
+	public LogLevel getLogLevel() {
+		return LogLevel.fromString(level);
+	}
+
+	public boolean isLogEnabled(LogLevel level) {
+		return this.enabled && level.equals(LogLevel.fromString(this.level));
+	}
+}
