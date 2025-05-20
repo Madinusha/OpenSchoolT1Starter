@@ -19,8 +19,4 @@ public class LoggableProperties {
 	public LogLevel getLogLevel() {
 		return LogLevel.fromString(level);
 	}
-
-	public boolean isLogEnabled(LogLevel level) {
-		return level.equals(LogLevel.fromString(this.level));
-	}
 }
