@@ -13,8 +13,6 @@ public class LoggableProperties {
 		this.enabled = enabled;
 		this.level = level;
 
-		System.out.println("enabled: " + enabled);
-		System.out.println("level: " + level);
 		LogLevel.fromString(this.level);
 	}
 
@@ -23,6 +21,6 @@ public class LoggableProperties {
 	}
 
 	public boolean isLogEnabled(LogLevel level) {
-		return this.enabled && level.equals(LogLevel.fromString(this.level));
+		return level.equals(LogLevel.fromString(this.level));
 	}
 }
